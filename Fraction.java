@@ -74,5 +74,12 @@ public class Fraction {
         }
         return a;
     }
+    
+    public Fraction add(Fraction other) {
+
+        int num = (this.getNumerator() * other.getDenominator()) + (other.getNumerator()*this.getDenominator());
+        int denom = this.getDenominator()*other.getDenominator();
+        return new Fraction(num, denom);
+    }
 }
 
