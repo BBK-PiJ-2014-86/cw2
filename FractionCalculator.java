@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class FractionCalculator {   
 
-		
+	private Fraction currentValue=null;	
+	private String operator = "";
+	
 	public static void main (String [] args) {
 		
 		FractionCalculator calculator = new FractionCalculator();
@@ -20,15 +22,25 @@ public class FractionCalculator {
 						
 			while (true) {
 				String input = sc.nextLine();
-				if(input.equals("Q") | input.equals("q")) {
-					break;
+				evaluate(currentValue,input);
 				}
 				
 			}
-	}
 
-		public Fraction evaluate (String inputString) {
-			return null;
+	public Fraction evaluate (Fraction fraction ,String inputString) {			
+			Fraction value = new Fraction(0,1);
+			String parts [] = inputString.split(" ");
+			
+			
+			for (int i = 0; i<parts.length; i++) {
+				
+				
+				
+				
+			}
+			
+		    currentValue = value;
+			return value;
 		}
 
 	}
