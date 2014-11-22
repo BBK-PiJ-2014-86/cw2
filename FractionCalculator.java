@@ -39,12 +39,32 @@ public class FractionCalculator {
 					if (operator.isEmpty()){
 					operator ="+";
 					} else {
-						error();
+					error();
 					}
-				}
+				} else if (parts[i].equals("-")){
+				    if (operator.isEmpty()) {
+				    	operator = "-";
+				    } else {
+				    	error();
+				    }
+				} else if (parts[i].equals("/")){
+				    if (operator.isEmpty()) {
+				    	operator = "/";
+				    } else {
+				    	error();
+				    }
+				}  else if (parts[i].equals("*")){
+				    if (operator.isEmpty()) {
+				    	operator = "*";
+				    } else {
+				    	error();
+				    }
 				
-				
+			    }  else {
+			    	
+			    }
 			}
+			
 			
 		    currentValue = newFractionValue;
 			return newFractionValue;
