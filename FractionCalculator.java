@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class FractionCalculator {   
 
-	private Fraction currentValue=null;	
-	private String operator = null;
+	public Fraction currentValue=null;	
+	public String operator = null;
 	
 	public static void main (String [] args) {
 		
@@ -36,32 +36,47 @@ public class FractionCalculator {
 			for (int i = 0; i<parts.length; i++) {
 				
 				if(parts[i].equals("+")) {
-					if (operator.isEmpty()){
+					if (operator==null){
 					operator ="+";
 					} else {
 					error();
 					}
 				} else if (parts[i].equals("-")){
-				    if (operator.isEmpty()) {
+				    if (operator==null) {
 				    	operator = "-";
 				    } else {
 				    	error();
 				    }
 				} else if (parts[i].equals("/")){
-				    if (operator.isEmpty()) {
+				    if (operator==null) {
 				    	operator = "/";
 				    } else {
 				    	error();
 				    }
 				}  else if (parts[i].equals("*")){
-				    if (operator.isEmpty()) {
+				    if (operator==null) {
 				    	operator = "*";
 				    } else {
 				    	error();
 				    }
 				
-			    }  else {
-			    	
+			    }  else if (parts[i].contains("/")) { //means that it's a fraction
+			       	Fraction tempFraction = new Fraction (Character.getNumericValue(parts[i].charAt(0)), Character.getNumericValue(parts[i].charAt(2)));
+			       	
+			       		if (operator == null) {
+			       			newFractionValue.setNumerator(tempFraction.getNumerator());
+			       			newFractionValue.setDenominator(tempFraction.getDenominator());
+			       		} else if (operator == "+") {
+			       			newFractionValue.add(tempFraction);
+			       		} else if (operator == "-") {
+			       			newFractionValue.subtract(tempFraction);
+			       		} else if (operator == "*") {
+			       			newFractionValue.multiply(tempFraction);
+			       		} else if (operator == "/") {
+			       			newFractionValue.divide(tempFraction);
+			       		} else {
+			       			error();
+			       		}
 			    }
 			}
 			
