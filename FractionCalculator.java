@@ -24,6 +24,7 @@ public class FractionCalculator {
 			while (true) {
 				String input = sc.nextLine();
 				evaluate(currentValue,input);
+				// !!! put a line printing it out every loop interation
 				}
 				
 			}
@@ -81,6 +82,8 @@ public class FractionCalculator {
 			       		} else {
 			       			error();
 			       		}
+			    }  else if (parts[i].equals("a")|| parts[i].equals("A")||parts[i].equals("abs")) {
+			    	newFractionValue = newFractionValue.absValue();
 			    }
 			}
 			
