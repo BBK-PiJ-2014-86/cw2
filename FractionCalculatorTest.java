@@ -22,7 +22,15 @@ public class FractionCalculatorTest {
 	    System.out.println(calculator.currentValue+ " " +calculator.operator);
 	    calculator.evaluate(testFraction, "1/4 / 2/4");
         System.out.println(calculator.currentValue+ " " +calculator.operator);*/
-        calculator.evaluate(testFraction, "1/4 - 2/4 abs");
+/*        calculator.evaluate(testFraction, "1/4 - 2/4 abs");
+	    System.out.println(calculator.currentValue+ " " +calculator.operator);*/
+		
+		calculator.evaluate(testFraction, "1/4 + 2/4 neg");
 	    System.out.println(calculator.currentValue+ " " +calculator.operator);
+	    calculator.evaluate(testFraction, "1/4 + 2/4 c");
+	    System.out.println(calculator.currentValue+ " " +calculator.operator);
+	    calculator.evaluate(testFraction, "1/4 + 1");
+	    System.out.println(calculator.currentValue+ " " +calculator.operator);
+	    calculator.evaluate(testFraction, "1/4 + 2/4 q");
 	}
 }
