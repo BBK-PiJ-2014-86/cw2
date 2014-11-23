@@ -16,5 +16,11 @@ public class FractionCalculatorTest {
 	    
 	    calculator.evaluate(testFraction, "1/4 + 2/4");
 	    System.out.println(calculator.currentValue+ " " +calculator.operator);
+	    calculator.evaluate(testFraction, "1/4 - 2/4");
+	    System.out.println(calculator.currentValue+ " " +calculator.operator);
+	    calculator.evaluate(testFraction, "1/4 * 2/4");
+	    System.out.println(calculator.currentValue+ " " +calculator.operator);
+	    calculator.evaluate(testFraction, "1/4 / 2/4");
+	    System.out.println(calculator.currentValue+ " " +calculator.operator);
 	}
 }
