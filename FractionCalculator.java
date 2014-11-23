@@ -84,6 +84,33 @@ public class FractionCalculator {
 			       		}
 			    }  else if (parts[i].equals("a")|| parts[i].equals("A")||parts[i].equals("abs")) {
 			    	newFractionValue = newFractionValue.absValue();
+			    } else if (parts[i].equals("n") || parts[i].equals("N") || parts[i].equals("neg")) {
+			    	newFractionValue = newFractionValue.negate();
+			    } else if (parts[i].equals("c")|| parts[i].equals("C")|| parts[i].equals("clear")) {
+			    	newFractionValue.setNumerator(0);			    	
+			    } else if (isNumeric(parts[i])) {
+			    	Fraction tempFraction = new Fraction (Integer.parseInt(parts[i]),1);
+			    	
+			    	if (operator == null) {
+		       			newFractionValue.setNumerator(tempFraction.getNumerator());
+		       			newFractionValue.setDenominator(tempFraction.getDenominator());
+		       		} else if (operator.equals("+")) {
+		       			newFractionValue = newFractionValue.add(tempFraction);
+		       			operator = null;
+		       		} else if (operator.equals("-")) {
+		       			newFractionValue= newFractionValue.subtract(tempFraction);
+		       			operator = null;
+		       		} else if (operator.equals("*")) {
+		       			newFractionValue = newFractionValue.multiply(tempFraction);
+		       			operator = null;
+		       		} else if (operator.equals("/")) {
+		       			newFractionValue = newFractionValue.divide(tempFraction);
+		       			operator = null;
+		       		} else {
+		       			error();
+		       		}
+			    } else if (parts[i].equals("q") || parts[i].equals("Q")|| parts[i].equals("quit")) {
+			    	quit();
 			    }
 			}
 			
@@ -94,6 +121,22 @@ public class FractionCalculator {
 	
 	private void error() {
 		System.out.println("Error");
+	}
+	private boolean isNumeric (String str) {
+		
+		for(int i = 0; i<str.length();i++) {
+			
+			if (!Character.isDigit(str.charAt(i))) {
+				return false;
+			} 
+		}
+		return true;
+			
+	}
+	
+	private void quit () {
+		System.out.println("Goodbye");
+		System.exit(0);
 	}
 
 	}
