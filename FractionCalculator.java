@@ -66,14 +66,18 @@ public class FractionCalculator {
 			       		if (operator == null) {
 			       			newFractionValue.setNumerator(tempFraction.getNumerator());
 			       			newFractionValue.setDenominator(tempFraction.getDenominator());
-			       		} else if (operator == "+") {
-			       			newFractionValue.add(tempFraction);
-			       		} else if (operator == "-") {
-			       			newFractionValue.subtract(tempFraction);
-			       		} else if (operator == "*") {
-			       			newFractionValue.multiply(tempFraction);
-			       		} else if (operator == "/") {
-			       			newFractionValue.divide(tempFraction);
+			       		} else if (operator.equals("+")) {
+			       			newFractionValue = newFractionValue.add(tempFraction);
+			       			operator = null;
+			       		} else if (operator.equals("-")) {
+			       			newFractionValue= newFractionValue.subtract(tempFraction);
+			       			operator = null;
+			       		} else if (operator.equals("*")) {
+			       			newFractionValue = newFractionValue.multiply(tempFraction);
+			       			operator = null;
+			       		} else if (operator.equals("/")) {
+			       			newFractionValue = newFractionValue.divide(tempFraction);
+			       			operator = null;
 			       		} else {
 			       			error();
 			       		}
