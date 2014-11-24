@@ -24,13 +24,17 @@ public class FractionCalculator {
 			while (true) {
 				String input = sc.nextLine();
 				evaluate(currentValue,input);
-				// !!! put a line printing it out every loop interation
+				System.out.println("Current value : " + currentValue.toString());
 				}
 				
 			}
 
 	public Fraction evaluate (Fraction fraction ,String inputString) {			
-			Fraction newFractionValue = new Fraction(fraction.getNumerator(),fraction.getDenominator());
+		if (fraction == null) {
+			fraction= new Fraction (0,1);
+		}
+		
+		Fraction newFractionValue = new Fraction(fraction.getNumerator(),fraction.getDenominator());
 			
 			String parts [] = inputString.split(" ");
 			
@@ -111,6 +115,10 @@ public class FractionCalculator {
 		       		}
 			    } else if (parts[i].equals("q") || parts[i].equals("Q")|| parts[i].equals("quit")) {
 			    	quit();
+			    } else {
+			    	currentValue.setNumerator(0);
+			    	error();
+			    	System.exit(0);
 			    }
 			}
 			
@@ -139,5 +147,5 @@ public class FractionCalculator {
 		System.exit(0);
 	}
 
-	}
+}
 
